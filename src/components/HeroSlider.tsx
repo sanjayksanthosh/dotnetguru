@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const slides = [
   {
@@ -60,12 +61,12 @@ const HeroSlider = () => {
               <p className="text-lg md:text-xl mb-8 opacity-90 leading-relaxed">
                 {slide.description}
               </p>
-              <a
-                href={slide.link}
+              <Link
+                to={slide.link}
                 className="inline-flex bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-white/90 transition-all hover:shadow-xl items-center gap-2"
               >
                 <span>👆</span> VIEW COURSE CONTENT
-              </a>
+              </Link>
             </div>
           </div>
         </div>

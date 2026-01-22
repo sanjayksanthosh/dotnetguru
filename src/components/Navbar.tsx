@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 
 const navItems = [
@@ -49,31 +50,31 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <img src="/images/logo.png" alt="Dotnet Gurukul" className="h-12 w-auto" />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
               <div key={item.name} className="relative group">
-                <a
-                  href={item.href}
+                <Link
+                  to={item.href}
                   className="nav-link flex items-center gap-1"
                 >
                   {item.name}
                   {item.dropdown && <ChevronDown size={14} />}
-                </a>
+                </Link>
                 {item.dropdown && (
                   <div className="nav-dropdown">
                     {item.dropdown.map((subItem) => (
-                      <a
+                      <Link
                         key={subItem.name}
-                        href={subItem.href}
+                        to={subItem.href}
                         className="block px-4 py-2 text-foreground hover:bg-primary hover:text-primary-foreground rounded transition-colors"
                       >
                         {subItem.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -95,22 +96,22 @@ const Navbar = () => {
           <div className="lg:hidden py-4 border-t border-black/10">
             {navItems.map((item) => (
               <div key={item.name}>
-                <a
-                  href={item.href}
+                <Link
+                  to={item.href}
                   className="block py-2 text-nav-foreground hover:bg-primary/10 px-4 rounded"
                 >
                   {item.name}
-                </a>
+                </Link>
                 {item.dropdown && (
                   <div className="pl-6">
                     {item.dropdown.map((subItem) => (
-                      <a
+                      <Link
                         key={subItem.name}
-                        href={subItem.href}
+                        to={subItem.href}
                         className="block py-2 text-nav-foreground/80 hover:bg-primary/10 px-4 rounded text-sm"
                       >
                         {subItem.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}

@@ -1,9 +1,25 @@
 import { Facebook, Twitter, Linkedin, Youtube, Instagram, ArrowUp } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const quickLinks = [
+    { name: "Home", path: "/" },
+    { name: "Courses", path: "/course/combo-package" },
+    { name: "About Us", path: "/about" },
+    { name: "Contact", path: "/contact" },
+    { name: "Blog", path: "/blog" },
+  ];
+
+  const courseLinks = [
+    { name: "ASP.NET Core", path: "/course/aspnet-course-online-training" },
+    { name: "C# Programming", path: "/course/c-course-online-training" },
+    { name: "SQL Server", path: "/course/sql-server-course-online-training" },
+    { name: ".NET Combo Package", path: "/course/combo-package" },
+  ];
 
   return (
     <footer className="bg-footer text-white">
@@ -26,11 +42,11 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {["Home", "Courses", "About Us", "Contact", "Blog"].map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-white/70 hover:text-primary transition-colors text-sm">
-                    {link}
-                  </a>
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <Link to={link.path} className="text-white/70 hover:text-primary transition-colors text-sm">
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -40,11 +56,11 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-lg mb-4">Our Courses</h4>
             <ul className="space-y-2">
-              {["ASP.NET Core", "C# Programming", "SQL Server", ".NET Combo Package"].map((course) => (
-                <li key={course}>
-                  <a href="#" className="text-white/70 hover:text-primary transition-colors text-sm">
-                    {course}
-                  </a>
+              {courseLinks.map((course) => (
+                <li key={course.name}>
+                  <Link to={course.path} className="text-white/70 hover:text-primary transition-colors text-sm">
+                    {course.name}
+                  </Link>
                 </li>
               ))}
             </ul>
